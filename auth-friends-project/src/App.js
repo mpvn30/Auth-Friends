@@ -6,20 +6,21 @@ import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
-    <div className="App">
       <Router>
-      <ul>
-          <a><Link to="/login">Login</Link></a>
-       
-          <a><Link to="/friends">Friends</Link></a>
-      </ul>
+        <div className="App">
+        <ul>
+            <a><Link to="/login">Login</Link></a>
+        
+            <a><Link to="/friends">Friends</Link></a>
+        </ul>
       <Switch>
           <PrivateRoute exact path="/friends" component={FriendList} />
           <Route path="/login" component={Login} />
           <Route component={Login} />
         </Switch>
+        </div>
       </Router>
-    </div>
+      
   );
 }
 

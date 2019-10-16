@@ -28,8 +28,8 @@ const login = e => {
 return(
     <div className="login">
         <form onSubmit={login}>
-            <input type="text" name="username" value={userCredentials.username} onChange={handleChanges}></input>
-            <input type="password" name="password" value={userCredentials.password} onChange={handleChanges}></input>
+            <input placeholder="username" type="text" name="username" value={userCredentials.username} onChange={handleChanges}></input>
+            <input placeholder="password" type="password" name="password" value={userCredentials.password} onChange={handleChanges}></input>
             <button>Log In</button>
         </form>
     </div>

@@ -3,19 +3,15 @@ import Friend from './Friend';
 import AddFriendForm from './AddFriendForm';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-const FriendList = () => {
-    const [ friends, setFriends ] = useState([]);
-
-    useEffect(()=> {
-        axiosWithAuth()
-        .get('/friends')
-        .then(res => {
-          console.log(res.data);
-          setFriends(res.data)
-        })
-        .catch(error => console.log(error));
-      }, []);
-
+const FriendList = (props) => {
+  const [ friends, setFriends ] = useState([])
+  
+  useEffect(() => {
+    axiosWithAuth()
+    .get('/friends')
+    .then(res => setFriends(res.data))
+    .catch(err => console.log(err))
+  })
       return(
           <div className="friend-list">
               <AddFriendForm />
@@ -31,4 +27,5 @@ const FriendList = () => {
       )
 }
 
-export default FriendList
+
+export default FriendList;

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
-const AddFriendForm = () => {
+const AddFriendForm = (props) => {
     const [ friendCredentials, setFriendCredentials ] = useState({
-        name: '',
-        age: '',
-        email: ''
+        name: "",
+        age: "",
+        email: ""
     })
 
 const handleChanges = e => {
@@ -16,18 +16,18 @@ const handleChanges = e => {
 }
 
 const submit = e => {
-    // e.preventDefault();
+    e.preventDefault();
     axiosWithAuth()
-    .post('./friends', friendCredentials)
+    .post('/friends', friendCredentials)
     .then(res => {
         setFriendCredentials({
             ...friendCredentials,
             name: "",
-            age:"",
-            email:""
+            age: "",
+            email: ""
         })
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
 
 }
 
